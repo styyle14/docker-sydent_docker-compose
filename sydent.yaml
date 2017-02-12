@@ -1,0 +1,15 @@
+version: '2'
+services:
+   sydent:
+      build:
+         context: ./build/docker-sydent
+         dockerfile: Dockerfile
+         args:
+            username: "sydent"
+      image: sydent:latest
+      command: python -B -m sydent.sydent
+      ports:
+         - "8090:8090"
+      volumes:
+         - "./run/config:/home/sydent/config"
+
